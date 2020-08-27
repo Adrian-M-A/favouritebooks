@@ -27,13 +27,13 @@ const BookController = {
         try {
             const { id } = req.params;
             const body = req.body;
-            console.log(body)
+
             const book = await BookModel.findByIdAndUpdate(id,
                 body
             , {new:true});
 
             res.status(201).send(book);
-            
+
         } catch (error) {
             sole.error(error)
             res.status(500).send({message:'There was an error trying to update this book.'})
