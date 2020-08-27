@@ -28,12 +28,6 @@ server.listen(socketPort, () => console.log("SocketServer running on PORT " + so
 
 io.on("connection", socket => {
   console.log("New client connected " + socket.id);
-  
-//   socket.on("initial_data", () => {
-//     BookModel.find().then(books => {
-//       io.sockets.emit("get_data", books);
-//     });
-//   });
 
   socket.on("putBook", book => {
     BookModel.findByIdAndUpdate(book.id, {
