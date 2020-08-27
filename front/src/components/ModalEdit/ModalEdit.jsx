@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import './ModalEdit.css';
 import { connect } from 'react-redux';
@@ -10,15 +10,9 @@ const ModalEdit = (props) => {
     let socket = socketIOClient("http://localhost:8000/");
     const [newTitle, setNewTitle] = useState('');
 
-
-    useEffect(()=>{
-        let socket = socketIOClient("http://localhost:8000/");
-        socket.emit("initial_data");
-
-    },[])
-
     const handleChange = (event) =>{
         setNewTitle(event.target.value)
+        updateTitle();
     }
 
     const updateTitle = () => {
@@ -32,7 +26,6 @@ const ModalEdit = (props) => {
 
     const closeModal = () => {
         editModal(false);
-        updateTitle();
     }
 
     return (

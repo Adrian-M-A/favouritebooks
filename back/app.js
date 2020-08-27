@@ -15,7 +15,6 @@ app.use(cors);
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-
 app.use('/books', booksRouter)
 
 app.listen(PORT, () => console.log("Server running on PORT " + PORT));
@@ -24,23 +23,22 @@ app.listen(PORT, () => console.log("Server running on PORT " + PORT));
 const server = http.createServer(app)
 const io = socketIO(server);
 const socketPort = 8000;
+
 server.listen(socketPort, () => console.log("SocketServer running on PORT " + socketPort));
+
 io.on("connection", socket => {
-  console.log("New client connected" + socket.id);
+  console.log("New client connected " + socket.id);
   
-  socket.on("initial_data", () => {
-    BookModel.find().then(books => {
-        console.log("hola Pedro")
-      io.sockets.emit("get_data", books);
-    });
-  });
+//   socket.on("initial_data", () => {
+//     BookModel.find().then(books => {
+//       io.sockets.emit("get_data", books);
+//     });
+//   });
 
   socket.on("putBook", book => {
-      console.log('PutBook')
     BookModel.findByIdAndUpdate(book.id, {
         title: book.title})
       .then(updatedDoc => {
-        
         io.sockets.emit("change_data");
       });
   });
