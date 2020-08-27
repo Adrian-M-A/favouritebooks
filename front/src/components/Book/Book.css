@@ -25,7 +25,7 @@
 }
 
 #editButton:hover{
-    box-shadow: 0.2rem 0.2rem 0.2rem black;
+    box-shadow: 0.2rem 0.2rem 0.2rem rgb(93, 93, 182);;
 }
 
 #bookRight{

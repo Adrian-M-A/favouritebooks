@@ -1,11 +1,13 @@
 import React from 'react';
 
 import './Book.css';
+import { viewBookDetail, showModal } from '../../services/redux/actions';
 
 const Book = (props) => {
 
-    const viewBookDetail = () => {
-        console.log('Detalles')
+    const viewBook = () => {
+        viewBookDetail(props.book);
+        showModal(true);
     }
 
     const editBook = () =>{
@@ -19,7 +21,7 @@ const Book = (props) => {
                 <button id="editButton" onClick={editBook}>Edit</button>
             </div>
             <div id="bookRight">
-                <div id="title" onClick={viewBookDetail}>{props.book.title}</div>
+                <div id="title" onClick={viewBook}>{props.book.title}</div>
                 <div id="description">{props.book.description}</div>
             </div>
         </div>

@@ -1,7 +1,9 @@
-const { GET_ALL_BOOKS } = require("./types/book");
+const { GET_ALL_BOOKS, BOOK_DETAIL, SHOW_MODAL } = require("./types/book");
 
 const initialState = {
-    allBooks: []
+    allBooks: [],
+    bookDetail: {},
+    showModal: false,
 }
 
 function reducer(state = initialState, action){
@@ -10,6 +12,16 @@ function reducer(state = initialState, action){
             return {
                 ...state,
                 allBooks: action.payload
+            }
+        case BOOK_DETAIL:
+            return {
+                ...state,
+                bookDetail: action.payload
+            }
+        case SHOW_MODAL:
+            return {
+                ...state,
+                showModal: action.payload
             }
         default:
             return state;
