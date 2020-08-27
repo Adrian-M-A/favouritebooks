@@ -1,4 +1,4 @@
-#modalWrapper{
+#modalEditWrapper{
     position: fixed;
     top: 0;
     bottom: 0;
@@ -6,7 +6,7 @@
     left: 0;
 }
 
-#modalBackdrop{
+#modalEditBackdrop{
     position: fixed;
     top: 0;
     bottom: 0;
@@ -16,7 +16,7 @@
     background-color: rgba(0,0,0,0.3);
 }
 
-#modalViewContainer{
+#modalEditContainer{
     position: relative;
     top: 50%;
     left: 50%;
@@ -32,36 +32,36 @@
     justify-content: center;
 }
 
-#bookUpModalView{
+#bookUpModalEdit{
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-#closeModalView{
+#closeModalEdit{
     cursor: pointer;
     align-self: flex-end;
 }
 
-#bookCoverModalView{
+#bookCoverModalEdit{
     width: 20rem;
     align-self: center;
 }
 
-#bookDownModalView{
+#bookDownModalEdit{
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
 }
 
-#titleModalView{
+#titleModalEdit{
     display: flex;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     justify-content: center;
 }
 
-#descriptionModalView{
+#descriptionModalEdit{
     display: flex;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: gray;

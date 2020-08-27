@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { API_URL } from '../../config/api';
 import store from './store.js';
-import { GET_ALL_BOOKS, BOOK_DETAIL, SHOW_MODAL } from './types/book';
+import { GET_ALL_BOOKS, BOOK_DETAIL, SHOW_MODAL, EDIT_MODAL } from './types/book';
 
 export const getAllBooks = async() => {
     
@@ -20,9 +20,15 @@ export const viewBookDetail = async(book) => {
 }
 
 export const showModal = async(bool) =>{
-    console.log(bool)
     store.dispatch({
         type: SHOW_MODAL,
+        payload: bool
+    })
+}
+
+export const editModal = async(bool) =>{
+    store.dispatch({
+        type: EDIT_MODAL,
         payload: bool
     })
 }

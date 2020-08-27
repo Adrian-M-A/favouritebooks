@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Book.css';
-import { viewBookDetail, showModal } from '../../services/redux/actions';
+import { viewBookDetail, showModal, editModal } from '../../services/redux/actions';
 
 const Book = (props) => {
 
@@ -11,7 +11,8 @@ const Book = (props) => {
     }
 
     const editBook = () =>{
-        console.log('Editando');
+        viewBookDetail(props.book);
+        editModal(true);
     }
 
     return(

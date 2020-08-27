@@ -13,9 +13,10 @@ const ModalView = (props) => {
 
     return ReactDOM.createPortal(
         <div id="modalWrapper">
-            <div id="modalBackdrop" onClick={closeModal}>
+            <div id="modalBackdrop">
                 <div id="modalViewContainer">
                     <div id="bookUpModalView">
+                        <div id="closeModalView" onClick={closeModal}>X</div>
                         <img id="bookCoverModalView" src={props.bookDetail.imagePath} alt=""/>
                     </div>
                     <div id="bookDownModalView">
