@@ -1,0 +1,16 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "Favourite books app",
+  "main": "app.js",
+  "dependencies": {
+    "mongoose": "^5.10.1",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adrian M.A.",
+  "license": "ISC"
+}
