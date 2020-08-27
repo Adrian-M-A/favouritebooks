@@ -35,10 +35,17 @@
 #bookUpModalEdit{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+}
+
+#closeModalEdit{
+    cursor: pointer;
+    align-self: flex-end;
 }
 
 #bookCoverModalEdit{
-    height: 30rem;
+    width: 20rem;
+    align-self: center;
 }
 
 #bookDownModalEdit{

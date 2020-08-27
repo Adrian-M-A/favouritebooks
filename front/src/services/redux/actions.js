@@ -20,7 +20,6 @@ export const viewBookDetail = async(book) => {
 }
 
 export const showModal = async(bool) =>{
-    console.log(bool)
     store.dispatch({
         type: SHOW_MODAL,
         payload: bool
@@ -28,7 +27,6 @@ export const showModal = async(bool) =>{
 }
 
 export const editModal = async(bool) =>{
-    console.log(bool)
     store.dispatch({
         type: EDIT_MODAL,
         payload: bool

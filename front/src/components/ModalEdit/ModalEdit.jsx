@@ -1,30 +1,55 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useEffect, useState } from 'react';
 
 import './ModalEdit.css';
 import { connect } from 'react-redux';
 import { editModal } from '../../services/redux/actions';
+import socketIOClient from 'socket.io-client';
 
 const ModalEdit = (props) => {
 
-    const closeModal = () => {
-        editModal(false);
+    let socket = socketIOClient("http://localhost:8000/");
+    const [newTitle, setNewTitle] = useState('');
+
+
+    useEffect(()=>{
+        let socket = socketIOClient("http://localhost:8000/");
+        socket.emit("initial_data");
+
+    },[])
+
+    const handleChange = (event) =>{
+        setNewTitle(event.target.value)
     }
 
-    return ReactDOM.createPortal(
+    const updateTitle = () => {
+        const book = {
+            id: props.bookDetail._id,
+            title: newTitle,
+        }
+
+        socket.emit('putBook', book);
+    }
+
+    const closeModal = () => {
+        editModal(false);
+        updateTitle();
+    }
+
+    return (
         <div id="modalEditWrapper">
-            <div id="modalEditBackdrop" onClick={closeModal}>
+            <div id="modalEditBackdrop">
                 <div id="modalEditContainer">
                     <div id="bookUpModalEdit">
-                        <img id="bookCoverModalEdit" src={props.bookDetail.imagePath} alt=""/>
+                    <div id="closeModalEdit" onClick={closeModal}>X</div>
+                        <img id="bookCoverModalEdit" src={props.bookDetail.imagePath} alt="Portada"/>
                     </div>
                     <div id="bookDownModalEdit">
-                        <div id="titleModalEdit">{props.bookDetail.title}</div>
+                        <input id="titleModalEdit" name="bookTitle" defaultValue={props.bookDetail.title} onChange={handleChange}></input>
                         <div id="descriptionModalEdit">{props.bookDetail.description}</div>
                     </div>
                 </div>
             </div>
-        </div>, document.getElementById("modal-root")
+        </div>
     )
 }
 

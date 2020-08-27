@@ -35,10 +35,17 @@
 #bookUpModalView{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+}
+
+#closeModalView{
+    cursor: pointer;
+    align-self: flex-end;
 }
 
 #bookCoverModalView{
-    height: 30rem;
+    width: 20rem;
+    align-self: center;
 }
 
 #bookDownModalView{
